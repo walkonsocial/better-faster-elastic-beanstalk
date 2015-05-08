@@ -1,4 +1,6 @@
 #!/bin/bash
+#source env variables including node version
+. /opt/elasticbeanstalk/env.vars
 
 function error_exit
 {
