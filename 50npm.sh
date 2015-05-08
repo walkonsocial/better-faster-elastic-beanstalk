@@ -11,6 +11,8 @@ function error_exit
 #avoid long NPM fetch hangups
 npm config set fetch-retry-maxtimeout 15000
 
+type -P pm2  && echo "... found, skipping install"   || npm install -g --production pm2@">=0.12.14 <1.0.0" --user 'root'
+
 #install not-installed yet app node_modules
 if [ ! -d "/var/node_modules" ]; then
   mkdir /var/node_modules ;
