@@ -14,3 +14,6 @@ echo "YAY! Updated global NPM version to `docker -v`"
 else
   echo "Skipping NPM -g version update. To update, please uncomment 40install_node.sh:12"
 fi
+
+echo "restarting docker service..."
+service docker restart
