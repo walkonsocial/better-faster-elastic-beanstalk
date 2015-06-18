@@ -5,7 +5,10 @@
 #UNCOMMENT to update docker, otherwise will be updated on instance init or rebuild
 #rm -f /opt/elasticbeanstalk/docker_updated
 
-
+## clean stopped docker containers
+docker rm $(docker ps -a -q)
+## clean untagged docker images
+docker rmi $(docker images | grep "^<none>" | awk '{print $3}')
 
 echo "checking docker..."
 if [ ! -f "/opt/elasticbeanstalk/docker_updated" ]; then
